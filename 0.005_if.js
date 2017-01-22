@@ -27,3 +27,36 @@ if (beautiful || unattractive) {
 } else {
 	console.log("Abby is ugly!")
 }
+
+if (!unattractive) {
+	console.log("Abby is the most wonderful girl I've ever met!");
+}
+
+if (!beautiful) {
+	console.log("Why did I ever decide to pursue her?");
+}
+
+var num1 = 10000
+var num2 = 40
+var num3 = 1994
+var num4 = 1776
+var num5 = 2017
+
+if (num1 >= num3) {
+	console.log("I am the greatest in the world!");
+}
+
+if (num2 == num4) {
+	console.log("America wasn't made great by Godliness.");
+}
+
+if (num4 >= num5) {
+	console.log("Capitalism by Donald Trump will take us very far.");
+}
+
+if (num4 < num5) {
+	console.log("God still is in complete control of all we see in America.");
+}
+
+
+
