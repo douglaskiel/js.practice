@@ -26,5 +26,5 @@ var setAge = function(myAge) {
 doug.age = setAge(41);
 console.log(doug.age);
 console.log(doug.age.getAge());
-console.log(doug.age.birthday);
-
+// console.log(doug.age.birthday);
+console.log(doug.age.getBirthday());
