@@ -5,8 +5,11 @@ function sumNum(num2, num3) {
 
 sumNum(10, 28);
 
-function complete(course) {
-	return "Douglas " + "has his" + course + ".";
+function complete(name, course) {
+	return name + course;
 }
 
-complete("gold badge");
+var addComplete = complete("Douglas")
+
+console.log();
+

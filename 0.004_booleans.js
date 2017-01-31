@@ -38,3 +38,6 @@ if (password) {
 } else {
 	console.log("hate");
 }
+
+console.log(10 / 50);
+console.log((5 * 5) - 20);
