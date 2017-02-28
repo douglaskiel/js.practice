@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Array</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<!--<script src="angular.js"></script>-->
+</head>
+<body>
+	<div ng-app= "myApp" ng-controller="myCtrl">
+		<ul ng-repeat="person in people">
+		<li>Name - {{person.name}}</li>
+		<li>Age - {{person.age}}</li>
+			
+		</ul>
+	</div>
+
+	<script>
+	var app = angular.module("myApp", []);
+	app.controller("myCtrl",
+	function($scope) {
+		$scope.firstName = "Juan";
+		$scope.lastName = "Valdez";
+		$scope.people = [
+		    {name:'John', age:25},
+		    {name:'Jessie', age:30},
+		    {name:'Johanna', age:28},
+		    {name:'Joy', age:15},
+		    {name:'Mary', age:28},
+		    {name:'Peter', age:95},
+		    {name:'Sebastian', age:50},
+		    {name:'Erika', age:27},
+		    {name:'Patrick', age:40},
+		    {name:'Samantha', age:60}
+			];
+	});
+	</script>
+
+
+
+</body>
+</html>
