@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+<body>
+<canvas id="draw" width="800" height="800"></canvas>
+<script>
+const canvas = document.querySelector('#draw');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+ctx.strokeStyle = "BADA55";
+ctx.lineJoin = 'round';
+ctx.lineCap = 'round';
+ctx.lineWidth = '50';
+// ctx.globalCompositeOperation = 'multiply';
+
+let isDrawing = false;
+// lastX and lastY are the places where the curser 
+// will start the drawing process
+let lastX = 0;
+let lastY = 0;
+// To gain the color differentiation by using 
+// 0 to 360 of the color range within hsl
+let hue = 0;
+let direction = true;
+
+// this is all event(e) information which allows us to draw on the canvas
+function draw(e) {
+	if (!isDrawing) return; 
+	// stop the func. from running when they are not moused down
+	console.log(e);
+	ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
+	// the following is only to start up the line we're going to draw
+	ctx.beginPath();
+	// start from
+	ctx.moveTo(lastX, lastY);
+	// go to 
+	ctx.lineTo(e.offsetX, e.offsetY);
+	ctx.stroke();
+	// deconstructing an array
+	[lastX, lastY] = [e.offsetX, e.offsetY];
+	hue++; // hue++ increments the color numbers from 0 to 360
+	if(hue >= 360) {
+		hue = 0;
+	}
+			// the greater than or less than parts 
+			// go up to 40 and back to 1 incrementally
+			// and visa versa
+	if (ctx.lineWidth >= 50 || ctx.lineWidth <= 1) {
+		direction = !direction;
+	}
+	if (direction) {
+		ctx.lineWidth++; // this increments lineWidth to 40
+	}else{
+		ctx.lineWidth--; // this decrements lineWidth back to 1
+	}
+
+}
+
+// the following allows the mouse to detect motion when the mouse 
+// is clicked down and on the page
+canvas.addEventListener('mousedown', (e) => {
+	isDrawing = true;
+	// lastX and lastY here are going to make the [0, 0] 
+	// point change to your next mousedown spot
+	[lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+// This will make the movement of the mouse capable of
+// communicating with the draw function
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseout', () => isDrawing = false);
+
+</script>
+
+<style>
+  html, body {
+    margin:0;
+  }
+</style>
+
+</body>
+</html>

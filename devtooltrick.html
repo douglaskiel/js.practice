@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('hello');
+
+    // Interpolated
+    console.log('Hello I am a %s string!', '바보');
+    // console.log(`Hello I am a ${바보} string`);
+
+    // Styled
+    console.log('%c I am some great text', 'font-size: 50px; font-weight: bold; background:blue; text-shadow: 10px 10px 0 green');
+
+    // warning!
+    console.warn('OH NOOO!');
+
+    // Error :|
+    console.error('Crap!');
+
+    // Info
+    console.info('Crocodiles eat 3 to 4 people per year!');    
+
+    // Testing
+    console.assert(1 == 2, 'That is wrong.');
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'), 
+      'You did not select the correct Element.');
+    // This allows you to test anything that you are working on
+    // which will then throw an error with a comment if given.
+
+    // clearing
+    console.clear();
+
+    // Viewing DOM Elements
+    console.log(p);
+    // log shows the element itself
+    console.dir(p);
+    // dir shows all that is going on inside the element
+
+    // Grouping together
+     dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age}`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+     });
+
+    // counting
+    console.count('Doug');
+    console.count('Doug');
+    console.count('Abby');
+    console.count('Emily');
+    console.count('Holly');
+    console.count('Doug');
+    console.count('Doug');
+    console.count('Abby');
+    console.count('Emily');
+    console.count('Emily');
+    console.count('Abby');
+    console.count('Doug');
+    console.count('Nathan');
+    console.count('Abby');
+    console.count('Abby');
+    console.count('Holly');
+    console.count('Doug');
+    console.count('Doug');
+    console.count('Holly');
+    console.count('Abby');
+    console.count('David');
+    console.count('Abby');
+    console.count('Abby');
+
+    // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/douglaskiel')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+  </script>
+</body>
+</html>
