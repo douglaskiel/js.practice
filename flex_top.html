@@ -42,11 +42,10 @@
       font-size: 20px;
       background-size:cover;
       background-position:center;
+      flex: 1;
       justify-content: center;
-      align-items: center;
       display: flex;
       flex-direction: column;
-      flex: 1;
     }
 
 
@@ -61,6 +60,7 @@
       width: 100%;
       transition:transform 0.5s;
       flex: 1 0 auto;
+      display: flex;
       justify-content: center;
       align-items: center;
     }
@@ -124,11 +124,11 @@
       this.classList.toggle('open');
     }
 
-    function toggleActive() {
+    function toggleActive(e) {
       console.log(e.propertyName);
-      // if (e.propertyName.includes('flex')) {
-      //   this.classList.toggle('open-active');
-      // }
+      if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      }
     }  
 
     panels.forEach(panel => panel.addEventListener('click', toggleOpen));
